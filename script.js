@@ -444,3 +444,30 @@ ytModal.onclick = (e) => {
     }
 
 };
+
+document.querySelectorAll(".partner-card").forEach((card,index)=>{
+
+    card.animate(
+
+        [
+            {
+                transform:"translateY(0px)"
+            },
+            {
+                transform:"translateY(-12px)"
+            },
+            {
+                transform:"translateY(0px)"
+            }
+
+        ],
+
+        {
+            duration:3500 + index*400,
+            iterations:Infinity,
+            easing:"ease-in-out"
+        }
+
+    );
+
+});
