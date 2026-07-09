@@ -163,34 +163,33 @@ video{
 
     position:fixed;
 
-    top:20px;
+    top:22px;
+
     left:50%;
 
     transform:translateX(-50%);
 
-    width:min(92%,1400px);
+    width:min(75%,1450px);
 
-    height:72px;
+    height:65px;
 
-    padding:0 30px;
+    padding:0 18px 0 35px;
 
     display:flex;
 
-    justify-content:space-between;
-
     align-items:center;
 
-    background:rgba(255,255,255,.05);
+    justify-content:space-between;
 
-    backdrop-filter:blur(20px);
+    background:rgba(8,8,8,.78);
 
-    border:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(25px);
 
-    border-radius:999px;
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
 
     z-index:9999;
-
-    transition:.4s ease;
 
 }
 
@@ -203,7 +202,129 @@ video{
 
     letter-spacing:-2px;
 
+    color:white;
+
 }
+
+.nav-links{
+
+    display:flex;
+
+    gap:55px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    color:#8b8b8b;
+
+    font-weight:500;
+
+    transition:.35s;
+
+}
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+.hire-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:#ff6b2d;
+
+    color:white;
+
+    padding:0 20px;
+
+    height:45px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.hire-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.menu-btn{
+
+    display:none;
+
+    color:white;
+
+    font-size:1.3rem;
+
+    cursor:pointer;
+
+}
+
+@media(max-width:900px){
+
+.nav-links{
+
+    display:none;
+
+}
+
+.hire-btn{
+
+    display:none;
+
+}
+
+.menu-btn{
+
+    display:block;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.nav-links.active{
+
+    display:flex;
+
+    flex-direction:column;
+
+    position:absolute;
+
+    top:90px;
+
+    left:0;
+
+    width:100%;
+
+    padding:30px;
+
+    gap:25px;
+
+    background:#0b0b0b;
+
+    border-radius:30px;
+
+}
+
+}
+
+
 
 
 /* ---------- NAVBAR BUTTON ---------- */
@@ -250,11 +371,232 @@ video{
                     HERO
 =================================================== */
 
-.hero{
+.hero-title{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
+.hero-top{
+
+    position:absolute;
+
+    top:40px;
+
+    left:24%;
+
+    transform:translateX(-50%);
+
+    font-family:Georgia, serif;
+
+    font-style:italic;
+
+    font-size:clamp(2rem,2.8vw,3.2rem);
+
+    color:#d8d8d8;
+
+    white-space:nowrap;
+
+    opacity:.9;
+
+    z-index:10;
+
+}
+
+.hero-title h1{
+
+    font-size:clamp(5rem,10vw,9rem);
+
+    line-height:.88;
+
+    letter-spacing:-6px;
+
+    font-weight:800;
+
+}
+
+.hero-title h2{
+
+    margin-top:-10px;
+
+    font-size:clamp(2.5rem,5vw,4.5rem);
+
+    font-weight:700;
+
+    line-height:.95;
+
+    letter-spacing:-3px;
+
+    color:#ffffff;
+
+}
+
+.hero-content{
     position:relative;
+    z-index:5;
 
-    height:100vh;
+    width:100%;
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+
+.hero{
+    position:relative;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding-top:90px;
+    padding-bottom:100px;
+
+    overflow:hidden;
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:260px;
+
+    background:
+
+    linear-gradient(
+
+        to bottom,
+
+        rgba(5,5,5,0) 0%,
+
+        rgba(5,5,5,.15) 20%,
+
+        rgba(5,5,5,.45) 50%,
+
+        rgba(5,5,5,.75) 75%,
+
+        #050505 100%
+
+    );
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+.hero video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,.35) 0%,
+        rgba(0,0,0,.55) 45%,
+        rgba(5,5,5,.88) 80%,
+        #050505 100%
+    );
+
+    z-index:1;
+}
+
+
+
+.hero-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    margin-bottom:25px;
+    margin-top:15px;
+
+    font-size:.9rem;
+
+    font-weight:500;
+
+}
+
+.badge-dot{
+
+    width:8px;
+
+    height:8px;
+
+    background:#ff6b2d;
+
+    border-radius:50%;
+
+    animation:pulse 1.8s infinite;
+
+}
+
+.hero h1{
+
+    margin:0 auto;
+
+    max-width:900px;
+
+    font-size:clamp(3rem,7vw,6rem);
+
+    line-height:.88;
+
+    letter-spacing:-5px;
+
+}
+
+.hero-subtitle{
+
+    max-width:650px;
+
+    margin:30px auto 0;
+
+    text-align:center;
+
+    color:#b5b5b5;
+
+    line-height:1;
+
+    font-size:1.1rem;
+
+}
+.hero-buttons{
 
     display:flex;
 
@@ -262,69 +604,174 @@ video{
 
     align-items:center;
 
-    overflow:hidden;
+    gap:18px;
 
-}
-
-
-.hero video{
-
-    position:absolute;
-
-    inset:0;
+    margin-top:40px;
 
     width:100%;
 
-    height:100%;
+}
 
-    object-fit:cover;
+.hero-btn{
 
-    transform:scale(1.05);
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    height:58px;
+
+    padding:0 30px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.hero-btn.primary{
+
+    background:#ff6b2d;
+
+    color:white;
+
+}
+
+.hero-btn.secondary{
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.05);
+
+}
+
+.hero-btn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.hero-services{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:55px;
+
+    width:100%;
+
+}
+
+.hero-services span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 20px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.hero-services span:hover{
+
+    border-color:#ff6b2d;
+
+    transform:translateY(-4px);
+
+}
+
+.hero-services i{
+
+    color:#ff6b2d;
+
+}
+
+@keyframes pulse{
+
+    0%,100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.5);
+
+        opacity:.5;
+
+    }
 
 }
 
 
-.hero-overlay{
+@media(max-width:768px){
 
-    position:absolute;
+.hero{
 
-    inset:0;
-
-    background:
-
-    linear-gradient(
-
-    to bottom,
-
-    rgba(0,0,0,.25),
-
-    rgba(0,0,0,.75)
-
-    );
+    min-height:85vh;
 
 }
-
 
 .hero h1{
 
-    position:relative;
-
-    z-index:5;
-
-    text-align:center;
-
-    font-size:clamp(2.4rem,6vw,5rem);
-
-    font-weight:700;
-
-    line-height:.82;
-
-    letter-spacing:-6px;
-
-    padding:0 20px;
+    font-size:2.5rem;
 
 }
 
+.hero-buttons{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.hero-btn{
+
+    width:250px;
+
+    justify-content:center;
+
+}
+
+.hero-services{
+
+    gap:10px;
+
+}
+
+.hero-services span{
+
+    font-size:.8rem;
+
+    padding:10px 16px;
+
+}
+
+}
 
 /* ===================================================
                     SHOWREEL
@@ -828,6 +1275,310 @@ video{
     rgba(255,255,255,.04)
 
     );
+
+}
+
+
+
+/*=========================
+        SERVICES
+==========================*/
+
+.services{
+
+    padding:140px 8%;
+
+}
+
+.services-heading{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.services-heading p{
+
+    color:#ff6b2d;
+
+    letter-spacing:4px;
+
+    margin-bottom:12px;
+
+    font-weight:600;
+
+}
+
+.services-heading h2{
+
+    font-size:clamp(2.5rem,5vw,5rem);
+
+}
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+.services-wrapper{
+
+    overflow:hidden;
+
+    width:100%;
+
+}
+
+.services-slider{
+
+    display:flex;
+
+    gap:28px;
+
+    width:max-content;
+
+    animation:serviceSlide 30s linear infinite;
+
+}
+
+@keyframes serviceSlide{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(calc(-50% - 14px));
+
+    }
+
+}
+
+.services-wrapper:hover .services-slider{
+
+    animation-play-state:paused;
+
+}
+
+.service-card{
+
+    transition:.4s;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-12px) scale(1.04);
+
+    border-color:#ff6b2d;
+
+    box-shadow:
+
+    0 20px 60px rgba(255,107,45,.25);
+
+}
+
+.services-slider::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.services-slider:active{
+
+    cursor:grabbing;
+
+}
+
+.service-card{
+
+    flex:0 0 340px;
+
+    padding:45px;
+
+    border-radius:36px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s ease;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#ff6b2d;
+
+    box-shadow:0 20px 50px rgba(255,107,45,.18);
+
+}
+
+/* Highlight active card */
+
+.service-card.active{
+
+    transform:translateY(-10px) scale(1.03);
+
+    border-color:#ff6b2d;
+
+    box-shadow:0 25px 60px rgba(255,107,45,.28);
+
+}
+
+.service-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    right:-120px;
+
+    top:-120px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+
+    rgba(255,107,45,.18),
+
+    transparent 70%);
+
+    transition:.5s;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#ff6b2d;
+
+    box-shadow:
+
+    0 20px 50px rgba(255,107,45,.18);
+
+}
+
+.service-card:hover::before{
+
+    transform:scale(1.3);
+
+}
+
+.service-icon{
+
+    font-size:2.6rem;
+
+    color:#ff6b2d;
+
+    margin-bottom:25px;
+
+}
+
+.service-card h3{
+
+    font-size:1.7rem;
+
+    margin-bottom:15px;
+
+}
+
+.service-card p{
+
+    color:#9f9f9f;
+
+    line-height:1.7;
+
+    margin-bottom:40px;
+
+}
+
+.service-card h1{
+
+    font-size:3rem;
+
+}
+
+.service-card h1 span{
+
+    font-size:1rem;
+
+    color:#999;
+
+    font-weight:400;
+
+}
+
+.service-tag{
+
+    position:absolute;
+
+    right:25px;
+
+    top:25px;
+
+    background:#ff6b2d;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+}
+
+@media(max-width:768px){
+
+.service-card{
+
+    flex:0 0 280px;
+
+    padding:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.services{
+
+    padding:90px 6%;
+
+}
+
+.service-card{
+
+    padding:35px;
+
+}
+
+.service-card h1{
+
+    font-size:2.4rem;
+
+}
 
 }
 
@@ -2204,6 +2955,185 @@ a{
 }
 
 }
+
+
+/* ===================================================
+        HERO MOBILE FIX (PLACE AT END OF CSS)
+=================================================== */
+
+@media (max-width:768px){
+
+.hero-top{
+    left: 50%;
+    margin-top:25px;
+    font-size: 1rem;
+}
+
+    .hero{
+
+        min-height:72vh;
+        padding:90px 20px 30px;
+        align-items:flex-start;
+
+    }
+
+    .hero-content{
+
+        max-width:100%;
+        padding:0;
+
+        gap:14px;
+
+    }
+
+    .hero-content h1{
+        font-size:1.8rem;
+
+        line-height:.9;
+
+        letter-spacing:-2.2px;
+
+        max-width:300px;
+    }
+
+    .hero-badge{
+        padding:8px 16px;
+
+        font-size:.75rem;
+    }
+
+    .badge-dot{
+
+        width:8px;
+        height:8px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.2rem;
+
+        line-height:.2;
+
+        letter-spacing:-2px;
+
+        max-width:330px;
+
+    }
+
+    .hero-subtitle{
+
+        max-width:310px;
+
+        font-size:.92rem;
+
+        line-height:1.55;
+
+        margin:5vw auto;
+
+    }
+
+    .hero-buttons{
+
+        margin-top:8px;
+
+        flex-direction:row;
+
+        gap:12px;
+
+        flex-wrap:wrap;
+
+    }
+
+    .hero-btn{
+
+        width:auto;
+
+        min-width:145px;
+
+        height:46px;
+
+        padding:0 18px;
+
+        font-size:.88rem;
+
+    }
+
+    .hero-services{
+
+        margin-top:10px;
+
+        gap:8px;
+
+    }
+
+    .hero-services span{
+
+        padding:7px 12px;
+
+        font-size:.72rem;
+
+        gap:6px;
+
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    .hero{
+
+        min-height:68vh;
+
+        padding:82px 18px 25px;
+
+    }
+
+    .hero h1{
+
+        font-size:2rem;
+
+        letter-spacing:-1px;
+
+        max-width:290px;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:.84rem;
+
+        max-width:280px;
+
+    }
+
+    .hero-btn{
+
+        min-width:135px;
+
+        height:42px;
+
+        font-size:.8rem;
+
+    }
+
+    .hero-services{
+
+        gap:6px;
+
+    }
+
+    .hero-services span{
+
+        font-size:.68rem;
+
+        padding:6px 10px;
+
+    }
+
+}
 /* ===================================================
                 END OF STYLE.CSS
 =================================================== */
+
