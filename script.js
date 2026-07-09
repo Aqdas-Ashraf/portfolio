@@ -471,3 +471,32 @@ document.querySelectorAll(".partner-card").forEach((card,index)=>{
     );
 
 });
+
+const menuBtn=document.querySelector(".menu-btn");
+const navLinks=document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+
+const servicesSlider = document.querySelector(".services-slider");
+
+servicesSlider.addEventListener("touchstart",()=>{
+
+    servicesSlider.style.animationPlayState="paused";
+
+});
+
+servicesSlider.addEventListener("touchend",()=>{
+
+    setTimeout(()=>{
+
+        servicesSlider.style.animationPlayState="running";
+
+    },1500);
+
+});
