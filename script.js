@@ -294,7 +294,7 @@ window.addEventListener("load", () => {
 
   loader.innerHTML = `
     <div class="loader-logo">
-      AQDAS
+      Aqdas Portfolio
     </div>
   `;
 
@@ -402,7 +402,7 @@ document.addEventListener("mousemove",(e)=>{
 
 });
 
-const ytCards = document.querySelectorAll(".video-card");
+const ytCards = document.querySelectorAll(".video-card, .long-video-card");
 
 const ytModal = document.querySelector(".video-modal");
 
@@ -500,3 +500,117 @@ servicesSlider.addEventListener("touchend",()=>{
     },1500);
 
 });
+
+/*=========================================
+        LONG FORM INFINITE SLIDER
+=========================================*/
+
+/* ===========================
+   LONG FORM SLIDER
+=========================== */
+
+const slider = document.querySelector(".long-slider");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+
+if(slider){
+
+    const gap = 30;
+
+    function getCardWidth(){
+
+        const card = slider.querySelector(".long-video-card");
+
+        return card.offsetWidth + gap;
+
+    }
+
+    function updateButtons(){
+
+        prevBtn.style.opacity =
+            slider.scrollLeft <= 10 ? ".35" : "1";
+
+        nextBtn.style.opacity =
+            slider.scrollLeft >= slider.scrollWidth - slider.clientWidth - 10
+            ? ".35"
+            : "1";
+
+    }
+
+    nextBtn.addEventListener("click",()=>{
+
+        slider.scrollBy({
+
+            left:getCardWidth(),
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+    prevBtn.addEventListener("click",()=>{
+
+        slider.scrollBy({
+
+            left:-getCardWidth(),
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+    slider.addEventListener("scroll",updateButtons);
+
+    window.addEventListener("resize",updateButtons);
+
+    updateButtons();
+
+}
+
+/*=========================
+    SHORT FORM SLIDER
+==========================*/
+
+const shortSlider = document.querySelector(".video-slider");
+
+const shortPrev = document.querySelector(".short-prev");
+
+const shortNext = document.querySelector(".short-next");
+
+if(shortSlider){
+
+    function shortCardWidth(){
+
+        const card = shortSlider.querySelector(".video-card");
+
+        return card.offsetWidth + 32;
+
+    }
+
+    shortNext.onclick = ()=>{
+
+        shortSlider.scrollBy({
+
+            left:shortCardWidth(),
+
+            behavior:"smooth"
+
+        });
+
+    }
+
+    shortPrev.onclick = ()=>{
+
+        shortSlider.scrollBy({
+
+            left:-shortCardWidth(),
+
+            behavior:"smooth"
+
+        });
+
+    }
+
+}
