@@ -289,40 +289,59 @@ titles.forEach((title) => {
 // LOADING SCREEN
 // =========================
 
-window.addEventListener("load", () => {
-  const loader = document.createElement("div");
+// window.addEventListener("load", () => {
 
-  loader.innerHTML = `
-    <div class="loader-logo">
-      Aqdas Portfolio
-    </div>
-  `;
+//     const loader = document.createElement("div");
 
-  loader.style.position = "fixed";
-  loader.style.inset = "0";
-  loader.style.background = "#050505";
-  loader.style.display = "flex";
-  loader.style.justifyContent = "center";
-  loader.style.alignItems = "center";
-  loader.style.zIndex = "99999";
-  loader.style.transition = "1s";
+//     loader.innerHTML = `
+//         <div class="loader-logo">
+//             Aqdas Portfolio
+//         </div>
+//     `;
 
-  document.body.appendChild(loader);
+//     Object.assign(loader.style, {
+//         position: "fixed",
+//         inset: "0",
+//         background: "#050505",
+//         display: "flex",
+//         justifyContent: "center",
+//         alignItems: "center",
+//         zIndex: "999999",
+//         transition: "opacity .5s ease",
+//         opacity: "1",
+//         padding: "20px"
+//     });
 
-  const logo = loader.querySelector(".loader-logo");
+//     document.body.appendChild(loader);
 
-  logo.style.fontSize = "4rem";
-  logo.style.fontWeight = "700";
-  logo.style.color = "white";
+//     const logo = loader.querySelector(".loader-logo");
 
-  setTimeout(() => {
-    loader.style.opacity = "0";
+//     Object.assign(logo.style, {
+//         fontFamily: "'Poppins', sans-serif",
+//         fontWeight: "700",
+//         fontSize: "clamp(1.8rem, 6vw, 4.5rem)",
+//         letterSpacing: "clamp(-1px, -0.15vw, -3px)",
+//         color: "#fff",
+//         textAlign: "center",
+//         lineHeight: "1.1",
+//         whiteSpace: "normal",
+//         maxWidth: "90vw",
+//         wordBreak: "break-word",
+//         userSelect: "none"
+//     });
 
-    setTimeout(() => {
-      loader.remove();
-    }, 1000);
-  }, 1200);
-});
+//     // Hide after 1 second
+//     setTimeout(() => {
+
+//         loader.style.opacity = "0";
+
+//         setTimeout(() => {
+//             loader.remove();
+//         }, 500);
+
+//     }, 500);
+
+// });
 
 // =========================
 // SMOOTH ANCHOR LINKS
