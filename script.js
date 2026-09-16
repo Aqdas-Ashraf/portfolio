@@ -424,45 +424,38 @@ document.addEventListener("mousemove",(e)=>{
 const ytCards = document.querySelectorAll(".video-card, .long-video-card");
 
 const ytModal = document.querySelector(".video-modal");
-
 const ytPlayer = document.getElementById("ytplayer");
-
 const ytCloseBtn = document.querySelector(".close-video");
 
 ytCards.forEach(card => {
-
-    card.onclick = () => {
+    card.addEventListener("click", () => {
 
         const id = card.dataset.video;
 
+        if (!id || !ytModal || !ytPlayer) return;
+
         ytPlayer.src =
-        `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+            `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
 
         ytModal.classList.add("active");
-
-    };
-
+    });
 });
 
-ytCloseBtn.onclick = () => {
-
-    ytModal.classList.remove("active");
-
-    ytPlayer.src = "";
-
-};
-
-ytModal.onclick = (e) => {
-
-    if (e.target === ytModal) {
-
+if (ytCloseBtn) {
+    ytCloseBtn.addEventListener("click", () => {
         ytModal.classList.remove("active");
-
         ytPlayer.src = "";
+    });
+}
 
-    }
-
-};
+if (ytModal) {
+    ytModal.addEventListener("click", (e) => {
+        if (e.target === ytModal) {
+            ytModal.classList.remove("active");
+            ytPlayer.src = "";
+        }
+    });
+}
 
 document.querySelectorAll(".partner-card").forEach((card,index)=>{
 
@@ -593,43 +586,27 @@ if(slider){
 ==========================*/
 
 const shortSlider = document.querySelector(".video-slider");
-
 const shortPrev = document.querySelector(".short-prev");
-
 const shortNext = document.querySelector(".short-next");
 
-if(shortSlider){
+if (shortSlider && shortPrev && shortNext) {
 
-    function shortCardWidth(){
-
+    function shortCardWidth() {
         const card = shortSlider.querySelector(".video-card");
-
         return card.offsetWidth + 32;
-
     }
 
-    shortNext.onclick = ()=>{
-
+    shortNext.onclick = () => {
         shortSlider.scrollBy({
-
-            left:shortCardWidth(),
-
-            behavior:"smooth"
-
+            left: shortCardWidth(),
+            behavior: "smooth"
         });
+    };
 
-    }
-
-    shortPrev.onclick = ()=>{
-
+    shortPrev.onclick = () => {
         shortSlider.scrollBy({
-
-            left:-shortCardWidth(),
-
-            behavior:"smooth"
-
+            left: -shortCardWidth(),
+            behavior: "smooth"
         });
-
-    }
-
+    };
 }
