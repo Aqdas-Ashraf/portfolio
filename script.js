@@ -610,3 +610,32 @@ if (shortSlider && shortPrev && shortNext) {
         });
     };
 }
+
+
+/* =========================================================
+   CLIENT VIDEO CONTROLS
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const clientVideos = document.querySelectorAll(
+        ".client-video-wrap video"
+    );
+
+    clientVideos.forEach((video) => {
+
+        video.addEventListener("play", () => {
+
+            clientVideos.forEach((otherVideo) => {
+
+                if (otherVideo !== video) {
+                    otherVideo.pause();
+                }
+
+            });
+
+        });
+
+    });
+
+});
